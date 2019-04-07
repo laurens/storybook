@@ -14,6 +14,10 @@ export function webpackFinal(config, { configDir }) {
 }
 
 export function managerWebpack(config) {
+  if (!isReactScriptsInstalled()) {
+    return config;
+  }
+
   return {
     ...config,
     resolveLoader: {
